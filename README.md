@@ -5,6 +5,8 @@
 
 The Objective-C Style Guide used by blinkbox books
 
+These guidelines are built on Apple's existing [Coding Guidelines for Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html). 
+
 ##Whitespaces
 ---
 * Spaces or tabs?
@@ -35,7 +37,7 @@ else{
 
 ##Documentation
 ---
-* All public methods should be documented using AppleDoc style 
+* All public methods should be documented using [AppleDoc](http://gentlebytes.com/appledoc/) style 
 * Comments can be both single line (`//`) or block style (`/**/`)
 * Use `#pragma mark - text` to organise code inside your implementation  file
 
@@ -61,7 +63,7 @@ label.text = NSLocalizedString(@"library-screen.button-title.main-menu",nil);
 ```
 
 * When presenting date values to user, always use NSDateFormatter, NSDateComponent API
-* For displaying content with flexible plurality or gender, we should use Localized Property List File (Localizable.stringsdict) format. Unicode Refence, OSX 10.9 reference 
+* For displaying content with flexible plurality or gender, we should use Localized Property List File (Localizable.stringsdict) format. [Unicode Refence](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html#rules), [OSX 10.9 reference](https://developer.apple.com/library/Mac/releasenotes/Foundation/RN-Foundation/index.html)
 
 ##Errors and exceptions
 ---
@@ -113,4 +115,4 @@ label.text = NSLocalizedString(@"library-screen.button-title.main-menu",nil);
 * [Sam Soffes](https://gist.github.com/soffes/812796)
 * [CocoaDevCentral](http://cocoadevcentral.com/articles/000082.php)
 * [Luke Redpath](http://lukeredpath.co.uk/blog/my-objective-c-style-guide.html)
-* [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)* 
+* [Marcus Zarra](http://www.cimgf.com/zds-code-style-guide/)
