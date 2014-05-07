@@ -1,14 +1,11 @@
 #Objective-C Style Guide
 
----
-
-
 The Objective-C Style Guide used by blinkbox books
 
 These guidelines are built on Apple's existing [Coding Guidelines for Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html). 
 
 ##Whitespaces
----
+
 * Spaces or tabs?
 * Braces should always open at the same line as the keyword `if,else,switch, for,while, method, functions` and close with the new line
 
@@ -36,25 +33,54 @@ else{
 ```
 
 ##Documentation
----
+
 * All public methods should be documented using [AppleDoc](http://gentlebytes.com/appledoc/) style 
 * Comments can be both single line (`//`) or block style (`/**/`)
 * Use `#pragma mark - text` to organise code inside your implementation  file
 
 ##Organisation
----
-* Instance variables usage is prohibited outside custom setters/getters and init/dealloc methods
-* Always use opening and closing braces for control structures (if,else,switch, for,while) even if there is only single statement inside it (we don't want another goto fail; )
+
+* Instance variables usage is prohibited outside custom `setters/getters` and `init/dealloc` methods
+* Always use opening and closing braces for control structures (`if,else,switch, for,while`) even if there is only single statement inside it (we don't want another goto fail; )
 * Usage of string literals in the code is discouraged, as well as numeric values. We should use const variables  whenever applicable.
 * Subclasses of base Cocoa classes should have proper suffixes for easier finding, examples:
 	1.  `UIViewController` subclasses should be called `BBB..........ViewController`,
 	2.  `UIView` subclasses should be called `BBB...View`, 
 	3.  `UITableViewCell` subclasses should be called `BBB...[TableView]Cell`
+	
+* Methods in the implementation file should be sorted and grouped  :
+	1. Method overrides (from most root class to the highest lecel)
+	2. Protocol methods
+	
+	```
+	
+	#pragma mark - NSObject
+	- (id) init{
+		...
+	}
+	- (void) dealloc{
+		...
+	}
+	
+	#pragma mark - UIViewController
+	- (void) viewDidLoad{
+		...
+	}
+	
+	- (void) viewDidAppear{
+		...
+	}
+	
+	#pragma mark - Some protocol methods
+	- (void) method{
+	}
+	
+	```
 
 
 
 ##Localisation
----
+
 * Never use string NSString literals for user-visible strings, always use NSLocalizedString() macro
 * Use reverse DNS schema for user visible strings, this greatly improve ease of possible future localisation
 
@@ -66,7 +92,7 @@ label.text = NSLocalizedString(@"library-screen.button-title.main-menu",nil);
 * For displaying content with flexible plurality or gender, we should use Localized Property List File (Localizable.stringsdict) format. [Unicode Refence](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html#rules), [OSX 10.9 reference](https://developer.apple.com/library/Mac/releasenotes/Foundation/RN-Foundation/index.html)
 
 ##Errors and exceptions
----
+
 * Use `NSExceptions` only to indicate programmer's error, unproper API usage, don't use it for real-world errors
 * Use `NSAssert/NSParameterAssert` whenever possible
 * Indicate undesired behaviour by taking reference to `NSError **` and by returning `nil` or `NO` value with the method (synchronous methods) or with the completion block, by returning success status value and separate `NSError` object
@@ -106,7 +132,7 @@ label.text = NSLocalizedString(@"library-screen.button-title.main-menu",nil);
 
 
 ##Other Coding Styles Guides
----
+
 
 * [NYTimes](https://github.com/NYTimes/objective-c-style-guide)
 * [Google](http://google-styleguide.googlecode.com/svn/trunk/objcguide.xml)
