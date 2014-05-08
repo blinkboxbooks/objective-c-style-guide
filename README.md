@@ -4,6 +4,31 @@ The Objective-C Style Guide used by blinkbox books
 
 These guidelines are built on Apple's existing [Coding Guidelines for Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html). 
 
+## Table of Contents
+* [Dot-Notation Syntax](#dot-notation-syntax)
+* [Whitespaces](#whitespaces)
+* [Documentation](#documentation)
+* [Organisation](#organisation)
+* [Localisation](#localisation)
+* [Errors and exceptions](#errors-and-exceptions)
+* [Other Coding Styles Guides](#other-coding-styles-guides)
+
+## Dot-Notation Syntax
+
+Dot-notation should **always** be used for accessing and mutating properties. Bracket notation is preferred in all other instances.
+
+**For example:**
+```objc
+view.backgroundColor = [UIColor orangeColor];
+[UIApplication sharedApplication].delegate;
+```
+
+**Not:**
+```objc
+[view setBackgroundColor:[UIColor orangeColor]];
+UIApplication.sharedApplication.delegate;
+```
+
 ##Whitespaces
 
 * Spaces or tabs?
