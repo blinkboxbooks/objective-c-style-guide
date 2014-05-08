@@ -64,6 +64,10 @@ We recommend using plugin for Xcode for putting new AppleDoc comments much faste
 
 * Comments can be both single line (`//`) or block style (`/**/`)
 * Use `#pragma mark - text` to organise code inside your implementation  file
+* We strongly ecourage also documenting:
+	* custom types (`NS_ENUM`,`NS_OPTIONS`) -  the type itself as well as each possible value,
+	* C functions - functionality, parameters and returned value should be described in detail,
+	* C macros
 
 ##Organisation
 
