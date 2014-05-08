@@ -34,7 +34,34 @@ else{
 
 ##Documentation
 
-* All public methods should be documented using [AppleDoc](http://gentlebytes.com/appledoc/) style 
+* All public methods and classes should be documented using [AppleDoc](http://gentlebytes.com/appledoc/) style. You should surround Cocoa and your classes, values, method names with backticks (`) so when  Example method documenation: 
+
+
+```
+/**
+ *  Designated initilizer method for `BBBSomethingViewController`
+ *
+ *  @param nibNameOrNil NIB file name or a `nil`
+ *  @param animated     `BOOL` value (`YES` meaning with animation and `NO` means no animtion at all.
+ *
+ *  @return new instance of the `BBBSomethingViewController` or `nil` if something went wrong
+ *
+ *  @see `UIViewController`
+ *  @see `NSDateFormatter`
+ */
+- (id) initWithNibName:(NSString *)nibNameOrNil booleanValue:(BOOL)animated{
+    self = [self initWithNibName:nibNameOrNil
+                      leftButton:animated];
+    if(self != nil){
+        [self setup];
+    }
+    return self;
+}
+```
+
+We recommend using plugin for Xcode for putting new AppleDoc comments much faster - [VVDocumenter](https://github.com/onevcat/VVDocumenter-Xcode), which can be installed through [Alcatraz](http://alcatraz.io), a Xcode plugin manager.
+
+
 * Comments can be both single line (`//`) or block style (`/**/`)
 * Use `#pragma mark - text` to organise code inside your implementation  file
 
