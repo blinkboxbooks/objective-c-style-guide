@@ -6,6 +6,7 @@ These guidelines are built on Apple's existing [Coding Guidelines for Cocoa](htt
 
 ## Table of Contents
 * [Dot-Notation Syntax](#dot-notation-syntax)
+* [Prefixes](#prefixes)
 * [Whitespaces](#whitespaces)
 * [Documentation](#documentation)
 * [Organisation](#organisation)
@@ -29,6 +30,14 @@ view.backgroundColor = [UIColor orangeColor];
 UIApplication.sharedApplication.delegate;
 ```
 
+##Prefixes
+
+All new classes and constants that are added to the project *must* be named with the prefix __BBB__ (from __B__link__B__ox__Books__) instead of old __BBBIosApp__ prefix.
+
+
+All new methods added to the Cocoa/Foundation classes in categories *must* have __bbb__ prefix in their names.
+
+
 ##Whitespaces
 
 * Spaces or tabs?
@@ -41,10 +50,10 @@ if (someBooleanValue){
  // do stuff
 }
 else if(someOtherBooleanValue){
- // do something
+ // do something else
 }
 else{
- // do other 
+ // do other things
 }
 ```
 
@@ -53,7 +62,7 @@ else{
 ```
 - (void) someMethodName:(BBBParameterClass *)parameterName 
        anotherParameter:(NSFunnyClass *)anotherNiceParameter{
- // method body
+	 // method body
 }
 ```
 
