@@ -40,7 +40,7 @@ All new methods added to the Cocoa/Foundation classes in categories *must* have 
 
 
 ##Acronyms
-All methods and classes which have the `URL` acronym in their name, should spell it in uppercase letters. Methods and functions parameters can use all lowercase version if the name consists only of `url` word; if parameter name has more words in it, it must be spelled with `URL` in all uppercase. Example from [NSURLSession documentation](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSURLSession_class/Introduction/Introduction.html):
+All methods and classes which have the `URL` acronym in their name, should spell it in uppercase letters. Methods and function parameters can use the all lowercase version if the name consists only of `url`; if the parameter name has more words in it, it must be spelled with `URL` in all uppercase. Example from [NSURLSession documentation](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSURLSession_class/Introduction/Introduction.html):
 
 ```
 - (NSURLSessionUploadTask *)uploadTaskWithRequest:(NSURLRequest *)request fromFile:(NSURL *)fileURL
