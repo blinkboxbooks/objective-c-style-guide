@@ -33,7 +33,7 @@ UIApplication.sharedApplication.delegate;
 
 ##Prefixes
 
-All new classes and constants that are added to the project *must* be named with the prefix __BBB__ (from __B__link__B__ox__Books__) instead of old __BBBIosApp__ prefix.
+All new classes and constants that are added to the project *must* be named with the prefix __BBB__ (from __B__ link __B__ ox __B__ ooks) instead of old __BBBIosApp__ prefix.
 
 
 All new methods added to the Cocoa/Foundation classes in categories *must* have __bbb__ prefix in their names.
