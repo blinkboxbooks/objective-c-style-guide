@@ -6,6 +6,8 @@ These guidelines are built on Apple's existing [Coding Guidelines for Cocoa](htt
 
 ## Table of Contents
 * [Dot-Notation Syntax](#dot-notation-syntax)
+* [Prefixes](#prefixes)
+* [Acronyms](#acronyms)
 * [Whitespaces](#whitespaces)
 * [Documentation](#documentation)
 * [Organisation](#organisation)
@@ -29,6 +31,27 @@ view.backgroundColor = [UIColor orangeColor];
 UIApplication.sharedApplication.delegate;
 ```
 
+##Prefixes
+
+All new classes and constants that are added to the project *must* be named with the prefix __BBB__ (from __B__ link __B__ ox __B__ ooks) instead of old __BBBIosApp__ prefix.
+
+
+All new methods added to the Cocoa/Foundation classes in categories *must* have __bbb__ prefix in their names.
+
+
+##Acronyms
+All methods and classes which have the `URL` acronym in their name, should spell it in uppercase letters. Methods and function parameters can use the all lowercase version if the name consists only of `url`; if the parameter name has more words in it, it must be spelled with `URL` in all uppercase. Example from [NSURLSession documentation](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSURLSession_class/Introduction/Introduction.html):
+
+```
+- (NSURLSessionUploadTask *)uploadTaskWithRequest:(NSURLRequest *)request fromFile:(NSURL *)fileURL
+
+- (NSURLSessionDataTask *)dataTaskWithURL:(NSURL *)url
+
+- (NSURLSessionDataTask *)dataTaskWithURL:(NSURL *)url completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler
+
+```
+
+
 ##Whitespaces
 
 * Spaces or tabs?
@@ -41,10 +64,10 @@ if (someBooleanValue){
  // do stuff
 }
 else if(someOtherBooleanValue){
- // do something
+ // do something else
 }
 else{
- // do other 
+ // do other things
 }
 ```
 
@@ -53,7 +76,7 @@ else{
 ```
 - (void) someMethodName:(BBBParameterClass *)parameterName 
        anotherParameter:(NSFunnyClass *)anotherNiceParameter{
- // method body
+	 // method body
 }
 ```
 
