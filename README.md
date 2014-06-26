@@ -7,12 +7,14 @@ These guidelines are built on Apple's existing [Coding Guidelines for Cocoa](htt
 ## Table of Contents
 * [Dot-Notation Syntax](#dot-notation-syntax)
 * [Prefixes](#prefixes)
+* [Naming](#naming)
 * [Acronyms](#acronyms)
 * [Whitespaces](#whitespaces)
 * [Documentation](#documentation)
 * [Organisation](#organisation)
 * [Localisation](#localisation)
 * [Errors and exceptions](#errors-and-exceptions)
+* [Unit tests](#unit-tests)
 * [Other Coding Styles Guides](#other-coding-styles-guides)
 
 ## Dot-Notation Syntax
@@ -37,6 +39,27 @@ All new classes and constants that are added to the project *must* be named with
 
 
 All new methods added to the Cocoa/Foundation classes in categories *must* have __bbb__ prefix in their names.
+
+##Naming
+Local variables, method and function arguments as well as method names must contain only full words. Exceptions from this rule are for example commonly used acronums like `URL` or `HTTP`. However there should be a common sense applied when naming to avoid extemely long names in the code.
+
+Examples:
+
+```
+NSDictionary *dict = @{@"key" : @"value"} // wrong
+NSDictionary *dictionary = @{@"key" : @"value"} // good
+
+NSManagedObjectContext *ctx; //wrong
+NSManagedObjectContext *context //good
+
+- (void)readFromParsDict:(NSDictionary *)d{..} // wrong
+- (void)readFromDictionary:(NSDictionary *)parameters{..} // good
+
+
+
+
+
+```
 
 
 ##Acronyms
@@ -169,6 +192,12 @@ label.text = NSLocalizedString(@"library-screen.button-title.main-menu",nil);
 
 * When presenting date values to user, always use NSDateFormatter, NSDateComponent API
 * For displaying content with flexible plurality or gender, we should use Localized Property List File (Localizable.stringsdict) format. [Unicode Refence](http://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html#rules), [OSX 10.9 reference](https://developer.apple.com/library/Mac/releasenotes/Foundation/RN-Foundation/index.html)
+* `NSLocalizedDescriptionKey` should contain __localizable__ (wrapped in the `NSLocalizedString` macro) string value, that could be presented to the user, so it should shorty explain the error. From the [`NSError.h`](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSError_Class/Reference/Reference.html#//apple_ref/occ/instm/NSError/localizedDescription):
+
+```
+The primary user-presentable message for the error. [...]
+```
+
 
 ##Errors and exceptions
 
@@ -178,7 +207,7 @@ label.text = NSLocalizedString(@"library-screen.button-title.main-menu",nil);
 
 
 ```
-- (BOOL)synchronousMethodThatDoesSomething:(NSError **)error{
+- (BOOL) synchronousMethodThatDoesSomething:(NSError **)error{
     // some code
    ...
     // we got a problem
@@ -191,7 +220,7 @@ label.text = NSLocalizedString(@"library-screen.button-title.main-menu",nil);
     return YES
 }
 
-- (void)asynchronousMethodThatDoesSomethingWithCompletion:(void (^)(BOOL success, NSError* error, ...))completion{
+- (void) asynchronousMethodThatDoesSomethingWithCompletion:(void (^)(BOOL success, NSError* error, ...))completion{
     // some code
    ...
     // we got a problem
@@ -208,6 +237,12 @@ label.text = NSLocalizedString(@"library-screen.button-title.main-menu",nil);
     }
 }
 ```
+
+##Unit-tests
+
+Unit tests should be as small as possible and they should __not__ depend on other parts of the code other than the code actually being tested in the given testcase. 
+
+Each test method should test one thing for better granularity and ease of catching test failures. It's highly discouraged to write really long `-(void)test...` methods that are asserting tens of times.
 
 
 ##Other Coding Styles Guides
