@@ -7,6 +7,7 @@ These guidelines are built on Apple's existing [Coding Guidelines for Cocoa](htt
 ## Table of Contents
 * [Dot-Notation Syntax](#dot-notation-syntax)
 * [Prefixes](#prefixes)
+* [Naming](#naming)
 * [Acronyms](#acronyms)
 * [Whitespaces](#whitespaces)
 * [Documentation](#documentation)
@@ -38,6 +39,27 @@ All new classes and constants that are added to the project *must* be named with
 
 
 All new methods added to the Cocoa/Foundation classes in categories *must* have __bbb__ prefix in their names.
+
+##Naming
+Local variables, method and function arguments as well as method names must contain only full words. Exceptions from this rule are for example commonly used acronums like `URL` or `HTTP`. However there should be a common sense applied when naming to avoid extemely long names in the code.
+
+Examples:
+
+```
+NSDictionary *dict = @{@"key" : @"value"} // wrong
+NSDictionary *dictionary = @{@"key" : @"value"} // good
+
+NSManagedObjectContext *ctx; //wrong
+NSManagedObjectContext *context //good
+
+- (void)readFromParsDict:(NSDictionary *)d{..} // wrong
+- (void)readFromDictionary:(NSDictionary *)parameters{..} // good
+
+
+
+
+
+```
 
 
 ##Acronyms
@@ -185,7 +207,7 @@ The primary user-presentable message for the error. [...]
 
 
 ```
-- (BOOL)synchronousMethodThatDoesSomething:(NSError **)error{
+- (BOOL) synchronousMethodThatDoesSomething:(NSError **)error{
     // some code
    ...
     // we got a problem
@@ -198,7 +220,7 @@ The primary user-presentable message for the error. [...]
     return YES
 }
 
-- (void)asynchronousMethodThatDoesSomethingWithCompletion:(void (^)(BOOL success, NSError* error, ...))completion{
+- (void) asynchronousMethodThatDoesSomethingWithCompletion:(void (^)(BOOL success, NSError* error, ...))completion{
     // some code
    ...
     // we got a problem
