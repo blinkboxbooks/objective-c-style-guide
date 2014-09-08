@@ -52,8 +52,8 @@ NSDictionary *dictionary = @{@"key" : @"value"} // good
 NSManagedObjectContext *ctx; //wrong
 NSManagedObjectContext *context //good
 
-- (void)readFromParsDict:(NSDictionary *)d{..} // wrong
-- (void)readFromDictionary:(NSDictionary *)parameters{..} // good
+- (void) readFromParsDict:(NSDictionary *)d{..} // wrong
+- (void) readFromDictionary:(NSDictionary *)parameters{..} // good
 
 
 
@@ -66,18 +66,18 @@ NSManagedObjectContext *context //good
 All methods and classes which have the `URL` acronym in their name, should spell it in uppercase letters. Methods and function parameters can use the all lowercase version if the name consists only of `url`; if the parameter name has more words in it, it must be spelled with `URL` in all uppercase. Example from [NSURLSession documentation](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSURLSession_class/Introduction/Introduction.html):
 
 ```
-- (NSURLSessionUploadTask *)uploadTaskWithRequest:(NSURLRequest *)request fromFile:(NSURL *)fileURL
+- (NSURLSessionUploadTask *) uploadTaskWithRequest:(NSURLRequest *)request fromFile:(NSURL *)fileURL
 
-- (NSURLSessionDataTask *)dataTaskWithURL:(NSURL *)url
+- (NSURLSessionDataTask *) dataTaskWithURL:(NSURL *)url
 
-- (NSURLSessionDataTask *)dataTaskWithURL:(NSURL *)url completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler
+- (NSURLSessionDataTask *) dataTaskWithURL:(NSURL *)url completionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler
 
 ```
 
 
 ##Whitespaces
 
-* Spaces or tabs?
+* `SPACES` - set Xcode to setting to `Prefer indent using : Spaces`
 * Braces should always open at the same line as the keyword `if,else,switch, for,while, method, functions` and close with the new line
 
 
@@ -102,6 +102,17 @@ else{
 	 // method body
 }
 ```
+
+
+* calling methods with brackets - you should always put a space in between closing bracket and next method when wirting nested method calls:
+
+```
+id object = [[NSObject alloc]init]; // WRONG
+
+id object = [[NSObject alloc] init]; // GOOD
+
+```
+
 
 ##Documentation
 
@@ -175,6 +186,7 @@ We recommend using plugin for Xcode for putting new AppleDoc comments much faste
 	
 	#pragma mark - Some protocol methods
 	- (void) method{
+	    ...
 	}
 	
 	```
@@ -242,8 +254,8 @@ The primary user-presentable message for the error. [...]
 
 Unit tests should be as small as possible and they should __not__ depend on other parts of the code other than the code actually being tested in the given testcase. 
 
-Each test method should test one thing for better granularity and ease of catching test failures. It's highly discouraged to write really long `-(void)test...` methods that are asserting tens of times.
-
+Each test method should test one thing for better granularity and ease of catching test failures. It's highly discouraged to write really long `-(void) test...` methods that are asserting tens of times.
+ 
 
 ##Other Coding Styles Guides
 
